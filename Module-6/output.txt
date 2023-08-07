@@ -1,0 +1,25 @@
+Depth1 : 0
+Depth2 : 1
+Depth3 : 1
+Depth4 : 2
+Depth5 : 2
+Depth6 : 3
+Depth7 : 3
+Depth8 : 4
+Depth9 : 2
+Depth10 : 1
+Depth11 : 2
+Depth12 : 2
+--------------------
+height1 : 4
+height2 : 3
+height3 : 1
+height4 : 0
+height5 : 2
+height6 : 1
+height7 : 0
+height8 : 0
+height9 : 0
+height10 : 1
+height11 : 0
+height12 : 0
