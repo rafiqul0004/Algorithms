@@ -1,0 +1,7 @@
+Distance 1 : 0
+Distance 2 : 3
+Distance 3 : 5
+Distance 4 : 6
+Distance 5 : 8
+Distance 6 : 7
+Distance 7 : 10
