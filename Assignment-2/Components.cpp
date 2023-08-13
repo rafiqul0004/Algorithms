@@ -1,32 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int N = 1e3 + 7;
+const int N = 1e5 + 5;
 vector<int> adj[N];
-bool visited[N];
-int level[N];
-void bfs(int s)
+int visited[N];
+int bfs(int s)
 {
+    int count = 1;
     queue<int> q;
     q.push(s);
     visited[s] = true;
-    level[s] = 0;
     while (!q.empty())
     {
         int u = q.front();
         q.pop();
-        cout << "Visiting " << u << endl;
         for (int v : adj[u])
         {
             if (visited[v] == true)
                 continue;
+            count++;
             q.push(v);
             visited[v] = true;
-            level[v] = level[u] + 1;
         }
     }
+    return count;
 }
 int main()
 {
+    vector<int> v;
     int n, m;
     cin >> n >> m;
     for (int i = 0; i < m; i++)
@@ -36,13 +36,18 @@ int main()
         adj[u].push_back(v);
         adj[v].push_back(u);
     }
-    bfs(1);
-    cout << "--------------------------" << endl;
-    for (int i = 1; i <= n; i++)
+    for (int i = 0; i <= 1000; i++)
     {
-        cout << "Leve " << i << " : " << level[i] << endl;
-        
+        if (visited[i])
+            continue;
+        int f = bfs(i);
+        if (f > 1)
+            v.push_back(f);
     }
-
+    sort(v.begin(), v.end());
+    for (int val : v)
+    {
+        cout << val << " ";
+    }
     return 0;
 }

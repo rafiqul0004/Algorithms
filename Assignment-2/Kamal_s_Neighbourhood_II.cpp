@@ -3,27 +3,26 @@ using namespace std;
 const int N = 1e3 + 7;
 vector<int> adj[N];
 bool visited[N];
-int level[N];
-void bfs(int s)
+int bfs(int s)
 {
+    int c = 0;
     queue<int> q;
     q.push(s);
     visited[s] = true;
-    level[s] = 0;
     while (!q.empty())
     {
         int u = q.front();
         q.pop();
-        cout << "Visiting " << u << endl;
         for (int v : adj[u])
         {
             if (visited[v] == true)
                 continue;
             q.push(v);
             visited[v] = true;
-            level[v] = level[u] + 1;
+            c++;
         }
     }
+    return c;
 }
 int main()
 {
@@ -34,15 +33,10 @@ int main()
         int u, v;
         cin >> u >> v;
         adj[u].push_back(v);
-        adj[v].push_back(u);
     }
-    bfs(1);
-    cout << "--------------------------" << endl;
-    for (int i = 1; i <= n; i++)
-    {
-        cout << "Leve " << i << " : " << level[i] << endl;
-        
-    }
-
+    int t;
+    cin >> t;
+    int f = bfs(t);
+    cout << f << endl;
     return 0;
 }

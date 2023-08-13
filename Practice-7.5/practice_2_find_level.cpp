@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int N = 1e3 + 7;
+const int N = 1e3 + 5;
 vector<int> adj[N];
-bool visited[N];
 int level[N];
+bool visited[N];
 void bfs(int s)
 {
     queue<int> q;
@@ -14,7 +14,6 @@ void bfs(int s)
     {
         int u = q.front();
         q.pop();
-        cout << "Visiting " << u << endl;
         for (int v : adj[u])
         {
             if (visited[v] == true)
@@ -36,13 +35,9 @@ int main()
         adj[u].push_back(v);
         adj[v].push_back(u);
     }
+    int c;
+    cin >> c;
     bfs(1);
-    cout << "--------------------------" << endl;
-    for (int i = 1; i <= n; i++)
-    {
-        cout << "Leve " << i << " : " << level[i] << endl;
-        
-    }
-
+    cout << "level of " << c << " = " << level[c];
     return 0;
 }

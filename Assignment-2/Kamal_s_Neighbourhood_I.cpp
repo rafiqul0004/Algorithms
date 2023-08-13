@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int N = 1e3 + 7;
+const int N = 1e5 + 7;
 vector<int> adj[N];
 bool visited[N];
 int level[N];
@@ -14,7 +14,6 @@ void bfs(int s)
     {
         int u = q.front();
         q.pop();
-        cout << "Visiting " << u << endl;
         for (int v : adj[u])
         {
             if (visited[v] == true)
@@ -36,13 +35,18 @@ int main()
         adj[u].push_back(v);
         adj[v].push_back(u);
     }
-    bfs(1);
-    cout << "--------------------------" << endl;
-    for (int i = 1; i <= n; i++)
+    int q;
+    cin >> q;
+    bfs(q);
+    int count = 0;
+    for (int i = 0; i < n; i++)
     {
-        cout << "Leve " << i << " : " << level[i] << endl;
-        
-    }
 
+        if (level[i] == 1)
+        {
+            count++;
+        }
+    }
+    cout << count << endl;
     return 0;
 }
